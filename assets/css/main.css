@@ -2885,6 +2885,7 @@ input, select, textarea {
 		input[type="button"].small,
 		.button.small {
 			font-size: 0.8em;
+			margin-bottom: 4%;
 		}
 
 		input[type="submit"].large,

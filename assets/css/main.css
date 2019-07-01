@@ -2475,7 +2475,7 @@ input, select, textarea {
 			cursor: default;
 			display: inline-block;
 			height: 6em;
-			line-height: 6.65em;
+			line-height: 7.65em;
 			margin: 0 0 1em 0;
 			text-align: center;
 			width: 6em;
@@ -4110,3 +4110,8 @@ input, select, textarea {
 					}
 
 	}
+
+#iconify {
+    width: 3em;
+    height: 3em;
+}

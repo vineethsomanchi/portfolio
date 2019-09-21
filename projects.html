@@ -18,16 +18,16 @@
 			<!-- Header -->
 			<header id="header">
 				<ul class="icons">
-					<li><a href="https://github.com/vineethsomanchi" class="icon brands fa-github"><span
+					<li><a href="https://github.com/vineethsomanchi" class="icon brands fa-github" target="_blank"><span
 								class="label">Github</span></a></li>
-					<li><a href="https://www.linkedin.com/in/vineethsomanchi/" class="icon brands fa-linkedin-in"><span
-								class="label">LinkedIn</span></a></li>
-					<li><a href="https://angel.co/vineethsomanchi" class="icon brands fa-angellist"><span
+					<li><a href="https://www.linkedin.com/in/vineethsomanchi/" class="icon brands fa-linkedin-in"
+							target="_blank"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://angel.co/vineethsomanchi" class="icon brands fa-angellist" target="_blank"><span
 								class="label">AngelList</span></a></li>
-					<li><a href="https://twitter.com/vineethsomanchi" class="icon brands fa-twitter"><span
+					<li><a href="https://twitter.com/vineethsomanchi" class="icon brands fa-twitter" target="_blank"><span
 								class="label">Twitter</span></a></li>
-					<li><a href="mailto:VineethSomanchi@gmail.com" class="icon brands"><i class="fas fa-envelope fa-2x"></i></a>
-					</li>
+					<li><a href="mailto:VineethSomanchi@gmail.com" class="icon brands" target="_blank" target="_blank"><i
+								class="fas fa-envelope fa-2x"></i></a></li>
 				</ul>
 				<nav id="nav">
 					<ul>
@@ -35,14 +35,14 @@
 						<li><a href="employment.html">Employment</a></li>
 						<li>
 							<a href="projects.html">Projects</a>
-							<!-- <ul>
+							<ul>
 								<li><a href="vinflix.html">VinFlix</a></li>
-								<li><a href="ddo.html">Donald's Day Off</a></li>
-								<li><a href="sartoria.html">Sartoria</a></li>
-								<li><a href="msim.html">MSIM</a></li>
-							</ul> -->
+								<!-- <li><a href="ddo.html">Donald's Day Off</a></li>
+												<li><a href="sartoria.html">Sartoria</a></li>
+												<li><a href="msim.html">MSIM</a></li> -->
+							</ul>
 						</li>
-						<li><a href="index.html#five">Contact</a></li>
+						<li><a href="#five">Contact</a></li>
 						<li><a href="images/resume.pdf" class="button primary" target="_blank">Résumé</a></li>
 					</ul>
 				</nav>
@@ -57,27 +57,30 @@
 					<!-- Content -->
 					<section id="content">
 						<h3>VinFlix</h3>
-						<h5>Recreation of Netflix.com</h5>
-						<p> VinFlix is a single-page, pixel perfect, recreation of Netflix.com that I built in 10 days. The backend is structured using PostgreSQL, Ruby on Rails's MVC
-						framework, and JBuilder to deliver data to the frontend in a JSON format. The frontend uses React/HTML for structure, Redux for state management, CSS for styling, and thunk middleware to curry
-						high-order function calls such as Ajax requests. The application supports user authentication utilizing session tokens and Rails's BCrypt hashing algorithm. The user experience was my primary concern with focuses on custom routes/paths and asynchronous event management. Object storage was completed using AWS S3 and hosting was handled by Heroku.</p>
-						<a href="#" class="button primary">Learn More</a>
+						<h5>Full Stack recreation of Netflix.com</h5>
+						<p> VinFlix is a single-page, pixel perfect, recreation of Netflix.com that I built in 2 weeks. The backend is build using Ruby on Rails's MVC
+						framework, PostgreSQL, and JBuilder to deliver data to the frontend in a JSON format. The frontend uses React/HTML for structure, Redux for state management, CSS3 for styling, and thunk middleware to curry
+						high-order function calls such as Ajax requests. The application supports user authentication utilizing session tokens and Rails's BCrypt hashing algorithm. The user experience was my primary concern with focuses on custom routes/paths and asynchronous event management. Object storage was handled by AWS S3 and hosting was handled by Heroku.</p>
+						<a href="vinflix.html" class="button primary small">Learn More</a>
+						<a href="https://vinflix.herokuapp.com/" class="button primary small" target="_blank">Live</a>
+						<a href="https://github.com/vineethsomanchi/VinFlix" class="button primary small" target="_blank">GitHub</a>
 						
 			
 						<h3>Donald's Day Off</h3>
-						<h5>Animated mini game</h5>
-						<p>DDO is an interactive, animated mini game where users must launch President Trump on a slingshot at a series of targets. It boasts a custom-built physics engine which takes in player input and simulates a slingshot lauching mechanism. As a challenge, all animations and physics were completed with Vanilla JavaScript and HTML Canvas, rather than using an external library.</p>
-						<a href="#" class="button primary">Learn More</a>
-			
+						<h5>Interactive slingshot mini game</h5>
+						<p>DDO is an interactive, animated mini game where users are rewarded for successfully slingshotting President Trump at a series of targets. It boasts a custom-built physics engine which tracks canvas dimensions, stretch distance, release speeds, and screen offset to simulate a slingshot. The gamer's experience is also enhanced by Trump sprite animations. As a personal challenge, all development was completed using Vanilla JavaScript and HTML Canvas, rather than using an external library.</p>
+						<a href="https://github.com/vineethsomanchi/Donalds-Day-Off" class="button primary small" target="_blank">GitHub</a>
+
 						<h3>Media Support Inventory Manager (MSIM)</h3>
 						<h5>University-wide equipment management solution</h5>
-						<p>As a part of my college work study job, our employees struggled with tracking the mass amounts of euipment we deal with on a day to day basis. MSIM was born as a simple tool to alleviate that problem and also was my introduction to the production enviornment. The backend is structured using Node.js and mySQL while the Ant Design framework is used on the frontend. MSIM also boasts NYU single sign-on via student emails which was made possible through Google's G Suite.</p>
-						<a href="#" class="button primary">Learn More</a>
-			
+						<p>As a part of my college work study position, our employees struggled with relying on excel spreadsheets and post-it notes to track the mass amounts of equipment we deal with.  MSIM was born as a simple tool to alleviate our problems, automate our responsibilities, and directly communicate with university faculty. The backend is built using Node.js and NYU-hosted mySQL servers. The frontend is built using a React framework known as Ant Design. MSIM also supports single sign-on via student emails which was made possible through Google's G Suite.</p>
+						<a href="https://github.com/riemes/ms-inventory-manager" class="button primary small" target="_blank">GitHub</a>
+
 						<h3>Sartoria</h3>
 						<h5>Social-media based clothing catalogue</h5>
-						<p>Sartoria is a web application which enables users to track, organize, and share the items in their closet. This was my introduction into Python frameworks utilizing Django and PostgreSQL on the backend.</p>
-						<a href="#" class="button primary">Learn More</a>
+						<p>Sartoria is a social-media-based web application which enables users to track, organize, and share the items in their closet. This was my introduction into Python frameworks utilizing Django and PostgreSQL on the backend. The application features a sharing system which seeks to connect fashionistas in their desire to both physically share their clothing with friends as well as online share with others. It also optimizes clothing storage/access abilities especially for those living in crampt city conditions. </p>
+						<a href="https://github.com/riemes/sartoria/pulse" class="button primary small" target="_blank">GitHub</a>
+
 					</section>
 				</div>
 			

@@ -52,78 +52,78 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
-							<h2>Right Sidebar</h2>
-							<p>Ipsum dolor feugiat aliquam tempus sed magna lorem consequat accumsan</p>
+							<h2>VinFlix</h2>
+							<p>Full stack, single page, pixel perfect recreation of Netflix.com</p>
 						</header>
-						<div class="row gtr-150">
-							<div class="col-8 col-12-medium">
 
-								<!-- Content -->
-									<section id="content">
-										<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-										<h3>Dolore Amet Consequat</h3>
-										<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at magna consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-										<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique.</p>
-										<h3>Sed Magna Ornare</h3>
-										<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus.</p>
-										<ul>
-											<li>Faucibus orci lobortis ac adipiscing integer.</li>
-											<li>Col accumsan arcu mi aliquet placerat.</li>
-											<li>Lobortis vestibulum ut magna tempor massa nascetur.</li>
-											<li>Blandit massa non blandit tempor interdum.</li>
-											<li>Lacinia mattis arcu nascetur lobortis.</li>
-										</ul>
-									</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- Sidebar -->
-									<section id="sidebar">
-										<section>
-											<h3>Magna Feugiat</h3>
-											<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit..</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button">Learn More</a></li>
-												</ul>
-											</footer>
-										</section>
-										<hr />
-										<section>
-											<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-											<h3>Amet Lorem Tempus</h3>
-											<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-											<footer>
-												<ul class="actions">
-													<li><a href="#" class="button">Learn More</a></li>
-												</ul>
-											</footer>
-										</section>
-									</section>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-			<!-- Footer -->
-				<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="mailto:VineethSomanchi@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-						<li><a href="https://twitter.com/vineethsomanchi" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://twitter.com/vineethsomanchi" class="icon brands alt fa-angellist"><span class="label">AngelList</span></a></li>
-						<li><a href="https://www.linkedin.com/in/vineethsomanchi/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/vineethsomanchi" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<div class="col-12"><span class="image fit"><img src="images/vinflix/main.png" alt="" /></span></div>
 						
-						
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Vineeth Somanchi. All rights reserved.</li>
-					</ul>
-				</footer>
+						<!-- Content -->
+						<section id="content">
+							<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+							<h3>User Authentication</h3>
+							<p>VinFlix uses custom frontend routes and real-time error handling to prevent access to any feature without
+								verification </p>
+							<div class="col-12"><span class="image fit"><img src="images/vinflix/auth.png" alt="" /></span></div>
+							<p>Upon account creation, passwords are hashed using the BCrypt function and a randomized session cookie is stored on
+								the client-side browser. When logging in, the user sends a request to the server with the non-plaintext password in
+								the header. If the password and browser cookie match, they are granted access. Passwords are never stored in
+								plaintext and the cookie is reassigned at every login. Shown below is the User model and the different methods attached to each instance.</p>
+							<pre><code>class User < ApplicationRecord 
+	validates :email, :password_digest, :session_token, presence: true 
+	validates :email, :session_token, uniqueness: true validates :password, length: { minimum: 4, maximum: 60, allow_nil: true } 
+	validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, on: :create } #Uses regex to validate email format 
+	
+	attr_reader :password
+	after_initialize :ensure_session_token 
+	
+	def self.find_by_credentials(email, password) 
+		user=User.find_by(email: email)
+		return nil unless user && user.is_password?(password)
+	end 
+	
+	def password=(password) 
+		@password=password
+		self.password_digest=BCrypt::Password.create(password) 
+	end 
+	
+	def is_password?(password)
+		BCrypt::Password.new(self.password_digest).is_password?(password) 
+	end 
+	
+	def reset_session_token!
+		self.session_token=SecureRandom.urlsafe_base64(16) 
+		self.save! 
+		self.session_token 
+	end 
+	
+	private 
+	def ensure_session_token 
+		self.session_token ||=SecureRandom.urlsafe_base64(16) 
+	end 
+end</code></pre>
+							<hr />
+							<h3>React/Redux</h3>
+							<p>The user interface is managed via a collection of React.js components each with their own individual state. Redux.js is used to direct the global state of the web application as well as pass pertinent information to specific components. Shown below is the VideoIndex component and it's respective subcomponents.</p>
+							<div class="col-12"><span class="image fit"><img src="images/vinflix/react.png" alt="" /></span></div>
+							<p>When changes are made to the global state, I implemented the five step Redux cycle. First, I coded a backend utilities file which would perform an Ajax request in order to receive information stored in the database. Second, based on the user's interactions with the UI, I designed and dispatched an action. Third, my thunk middleware intercepts every action. If the action is a function (Ajax request), it is sent to my backend. If the action is an object, a "promise" is returned and sent to my reducer. Fourth, I structure a reducer which receives dispatched actions and acts as the blueprint of how the store should be changed. Fifth and finally, I create a store to, quite literally, store my global state.</p>
+							<div class="col-12"><span class="image fit"><img src="images/vinflix/redux.png" alt="" /></span></div>
+							<hr />
+							<h3>Amazon Web Services/Heroku</h3>
+							<p>As a data-heavy application, I chose to use AWS S3 to store my large video files. I started by creating a S3 bucket, filling it with mp4 files, configuring the security policies, and writing a seed file that links mp4 files with specific database entries. Afterwards, I installed the "Active Storage" gem, migrated changes to my database to allow files stored in the cloud to be attached to Rails models, and updated my app's credential file with my key. Shown below is my VinFlix-dev bucket and no, it's no longer public. </p>
+							<div class="col-12"><span class="image fit"><img src="images/vinflix/aws.png" alt="" /></span></div>
+							<p>After downloading the CLI, migrating my static assets to a Asset Pipeline, installing webpack, and ensuring my application is production-ready, I used Heroku to host my application. I frequently monitor the metrics and Heroku logs to check on my baby. </p>
+							<hr />
+							<h3>Custom Video Player</h3>
+							<div class="col-12"><span class="image fit"><img src="images/vinflix/player.png" alt="" /></span></div>
+							<hr />
+							<h3>Modern Styling</h3>
+							
+							<hr />
+						</section>
 
+
+		
 		</div>
 
 		<!-- Scripts -->

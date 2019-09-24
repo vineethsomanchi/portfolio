@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Right Sidebar - Landed by HTML5 UP</title>
+		<title>VinFlix</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -26,7 +26,7 @@
 								class="label">AngelList</span></a></li>
 					<li><a href="https://twitter.com/vineethsomanchi" class="icon brands fa-twitter" target="_blank"><span
 								class="label">Twitter</span></a></li>
-					<li><a href="mailto:VineethSomanchi@gmail.com" class="icon brands" target="_blank" target="_blank"><i
+					<li><a href="mailto:VineethSomanchi@gmail.com" class="icon brands"><i
 								class="fas fa-envelope fa-2x"></i></a></li>
 				</ul>
 				<nav id="nav">
@@ -42,7 +42,9 @@
 												<li><a href="msim.html">MSIM</a></li> -->
 							</ul>
 						</li>
-						<li><a href="#five">Contact</a></li>
+						<li><a href="index.html#five">Contact</a></li>
+						<li><a href="https://vinflix.herokuapp.com/">Live</a></li>
+						<li><a href="https://github.com/vineethsomanchi/VinFlix">GitHub</a></li>
 						<li><a href="images/resume.pdf" class="button primary" target="_blank">Résumé</a></li>
 					</ul>
 				</nav>
@@ -55,7 +57,7 @@
 							<h2>VinFlix</h2>
 							<p>Full stack, single page, pixel perfect recreation of Netflix.com</p>
 						</header>
-
+						
 						<div class="col-12"><span class="image fit"><img src="images/vinflix/main.png" alt="" /></span></div>
 						
 						<!-- Content -->
@@ -110,15 +112,21 @@ end</code></pre>
 							<div class="col-12"><span class="image fit"><img src="images/vinflix/redux.png" alt="" /></span></div>
 							<hr />
 							<h3>Amazon Web Services/Heroku</h3>
-							<p>As a data-heavy application, I chose to use AWS S3 to store my large video files. I started by creating a S3 bucket, filling it with mp4 files, configuring the security policies, and writing a seed file that links mp4 files with specific database entries. Afterwards, I installed the "Active Storage" gem, migrated changes to my database to allow files stored in the cloud to be attached to Rails models, and updated my app's credential file with my key. Shown below is my VinFlix-dev bucket and no, it's no longer public. </p>
+							<p>As a data-heavy application, I chose to use AWS S3 to store my large video files. I started by creating a S3 bucket, filling it with mp4 files, configuring the security policies, and writing a seed file that links mp4 files with specific database entries. Afterwards, I installed the "Active Storage" gem, migrated changes to my database to allow files stored in the cloud to be attached to Rails models, and updated my app's credential file with my key. Shown below is my VinFlix-dev bucket. No, it's no longer public. </p>
 							<div class="col-12"><span class="image fit"><img src="images/vinflix/aws.png" alt="" /></span></div>
 							<p>After downloading the CLI, migrating my static assets to a Asset Pipeline, installing webpack, and ensuring my application is production-ready, I used Heroku to host my application. I frequently monitor the metrics and Heroku logs to check on my baby. </p>
 							<hr />
 							<h3>Custom Video Player</h3>
+							<p>When a video is selected, Vinflix's custom video player is opened. Using JavaScript event listeners, React refs, and the HTML5 video element, the player features volume toggling, custom seeking (fast-forward/rewind) functionality, an input bar to represent your place in the video, and a dynamically changing UI based on how user's interact with the video.   </p>
 							<div class="col-12"><span class="image fit"><img src="images/vinflix/player.png" alt="" /></span></div>
 							<hr />
 							<h3>Modern Styling</h3>
-							
+							<p>Using the most up-to-date CSS3 tools and the WebKit rendering engine, VinFlix attempts to replicate Netflix's
+							extravagant styling down to the pixel. While styling, user experience was placed on the forefront. Complex add-ons like
+							automatically zooming in and playing videos upon hover, adding a scroll bar to see each video in a specific category,
+							video information popping up when a video is paused, and real-time error handling all add a professional element to how
+							a user can interact with the application. Shown below are some of my favorites.</p>
+							<div class="col-12"><span class="image fit"><img src="images/vinflix/zoom.gif" alt="" /></span></div>
 							<hr />
 						</section>
 
